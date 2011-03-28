@@ -1,0 +1,136 @@
+
+[global]
+###################################################
+## lib.navbar (Main Button Navigation in Header)
+###################################################
+lib.navbar = COA
+lib.navbar {
+  10 = TEXT
+  10.value = <a id="navigation" name="navigation"></a>
+  10.stdWrap.prefixComment = 2|Output of lib.navbar.10
+  20 = HMENU
+  20 {
+    stdWrap.prefixComment = 2|Output of lib.navbar.20
+    wrap = <div id="nav_main">|</div>
+    entryLevel = {$plugin.devnullvoila.navMain.entryLevel}
+    excludeUidList = {$plugin.devnullvoila.navMain.excludeList}
+    1 = TMENU
+    1 {
+        noBlur = 1
+        wrap = <ul>|</ul>
+        NO = 1
+        NO.ATagTitle.field = abstract // description // subtitle
+        NO.allWrap = <li>|</li>
+		NO.allwrap.prefixComment = 2|Output of lib.navbar.20.NO
+        NO.linkWrap = <span>|</span>
+        NO.ATagBeforeWrap = 1
+        NO.stdWrap.htmlSpecialChars = 1
+        ACT = 1
+        ACT < .NO
+        ACT.allWrap = <li id="current">|</li>
+		ACT.allwrap.prefixComment = 2|Output of lib.navbar.20.ACT
+    }
+  }
+}
+
+# Delete COA-Members if user has set the appropriate option
+[globalVar = LIT:1 = {$plugin.devnullvoila.navMain.navigationOff}]
+lib.navbar.10 >
+lib.navbar.20 >
+
+[global]
+###################################################
+## lib.submenu
+###################################################
+lib.submenu = COA
+lib.submenu.10 = COA
+lib.submenu.10 {
+    stdWrap.prefixComment = 2|Output of lib.submenu.10
+    wrap = <ul id="submenu">|</ul>
+# Should begin with 20, so the user can add something here.
+    20 = TEXT
+    20.stdWrap.prefixComment = 2|Output of lib.submenu.10.20
+    20.data = leveltitle:1
+    20.ifEmpty.cObject = TEXT
+    20.ifEmpty.cObject.value = YAML CSS-Framework
+    20.wrap = <li id="title">|</li>
+    30 = HMENU
+    30 {
+        stdWrap.prefixComment = 2|Output of lib.submenu.10.30
+        wrap = |
+        entryLevel = {$plugin.devnullvoila.navSub.entryLevel}
+        excludeUidList = {$plugin.devnullvoila.navSub.excludeList}
+        1 = TMENU
+        1 {
+            expAll = {$plugin.devnullvoila.navSub.expandToggle}
+            noBlur = 1
+            wrap = |
+            NO = 1
+            NO.ATagTitle.field = abstract // description // subtitle
+            # NO.allWrap = |
+            NO.wrapItemAndSub = <li>|</li>
+            NO.stdWrap.htmlSpecialChars = 1
+			NO.linkWrap = {$plugin.devnullvoila.navSub.menuLinkWrap}
+			NO.ATagBeforeWrap = 1
+			CUR < .NO
+			CUR = 1
+			CUR.allWrap = <strong>|</strong>
+			CUR.wrapItemAndSub = <li>|</li>
+			CUR.doNotLinkIt = 1
+			CUR.stdWrap.htmlSpecialChars = 1
+			IFSUB = 1
+			IFSUB < .NO
+			IFSUB.linkWrap = {$plugin.devnullvoila.navSub.menuIfsubLinkWrap}
+		}
+		2 < .1
+		2.wrap = <ul>|</ul>
+		3 < .1
+		3.wrap = <ul>|</ul>
+		4 < .1
+		4.wrap = <ul>|</ul>
+		5 < .1
+		5.wrap = <ul>|</ul>
+	}
+}
+# Delete entire menu if user has set the appropriate option
+[globalVar = LIT:1 = {$plugin.devnullvoila.navSub.menuOff}]
+lib.submenu.10 >
+[global]
+# Delete headline of menu if user has set the appropriate option
+[globalVar = LIT:1 = {$plugin.devnullvoila.navSub.headlineOff}]
+lib.submenu.10.20 >
+[global]
+
+[global]
+# Top Nav Menu
+lib.topnav = COA
+lib.topnav {
+    stdWrap.prefixComment = 2|Output of lib.topnav
+    10 = HMENU
+    10 {
+        stdWrap.prefixComment = 2|Output of lib.topnav.10
+        wrap = <div id="top_door">|</div>
+        special = list
+        special.value = {$plugin.devnullvoila.navTop.IncludeList}
+        1 = TMENU
+        1 {
+			noBlur = 1
+			stdWrap.prefixComment = 2|Output of top_door.TMENU.1
+			wrap = <ul>|</ul>
+			NO = 1
+			NO.allWrap = <li>|</li>
+			NO.allWrap.prefixComment = 2|Output of top_door.TMENU.1.NO
+			NO.ATagTitle.field = abstract // description // subtitle
+			NO.linkWrap = <span>|</span>
+			NO.ATagBeforeWrap = 1
+			NO.stdWrap.htmlSpecialChars = 1
+			ACT = 1
+			ACT < .NO
+			ACT.allWrap = <li id="current">|</li>
+			ACT.allWrap.prefixComment = 2|Output of top_door.TMENU.1.ACT
+		}
+    }
+}
+[globalVar = LIT:1 = {$plugin.devnullvoila.navTop.topNavOff}]
+lib.topnav >
+[GLOBAL]

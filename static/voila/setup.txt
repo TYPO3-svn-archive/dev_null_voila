@@ -1,0 +1,78 @@
+
+config {
+    baseURL                     = {$plugin.devnullvoila.userBaseUrl}
+
+    doctype                     = {$plugin.devnullvoila.expert.docTypeToUse}
+    xml_prologue                = none
+    htmlSpecialChars            = 1
+
+    linkVars                    = L
+    sys_language_uid            = 0
+    language                    = {$plugin.devnullvoila.lang.langIsoCode}
+    locale_all                  = {$plugin.devnullvoila.lang.langLocale}
+    htmlTag_langKey             = {$plugin.devnullvoila.lang.langIsoCode}
+
+    tx_cooluri_enable    	    = {$plugin.devnullvoila.coolUriOn}
+
+    simulateStaticDocuments     = 0
+    redirectOldLinksToNew       = 1
+
+    stat                        = {$plugin.devnullvoila.statisticOn}
+    stat_apache                 = {$plugin.devnullvoila.statApacheSetting}
+    stat_apache_logfile         = {$plugin.devnullvoila.statApacheLogFile}
+    stat_mysql                  = {$plugin.devnullvoila.statMysqlSetting}
+
+    stat_apache_niceTitle       = utf-8
+    stat_apache_pagenames       = [request_uri]
+    stat_excludeBEuserHits      = 1
+#	stat_excludeIPList          =
+#	stat_apache_pagenames       =
+#	stat_apache_notExtended     =
+#	stat_apache_noHost          =
+#	stat_titleLen               =
+
+    admPanel                    = {$plugin.devnullvoila.expert.admPanelOn}
+    disablePrefixComment        = {$plugin.devnullvoila.expert.disablePrefComm}
+}
+
+[globalVar = LIT:1 = {$plugin.devnullvoila.expert.loclMode}]
+config {
+	baseURL                     = {$plugin.devnullvoila.expert.loclBaseUrl}
+
+	tx_cooluri_enable    	    = {$plugin.devnullvoila.expert.loclCoolUri}
+
+	index_enable                = 1
+	stat_apache                 = 0
+	
+	admPanel                    = 1
+	disablePrefixComment        = 0
+}
+[global]
+
+/*
+# Teaser Settings
+lib.teaser = COA
+lib.teaser {
+	stdWrap.prefixComment = 2|Output of lib.teaser
+	10 < temp.teaser
+ 	10.stdWrap.prefixComment = 2|Output of lib.teaser.10
+}
+*/
+
+plugin.tx_devnullvoila_pi1 = USER
+plugin.tx_devnullvoila_pi1 {
+	userFunc            = tx_devnullvoila_pi1->main
+	cssWrapItem         = |
+	cssWrapLink         = <link rel="stylesheet" type="text/css" href="|" >
+	cssPath             = {$plugin.devnullvoila.cssPath}
+	xmlDevNullRoot      = devNullVoilaCSS
+}
+
+# Default PAGE object:
+page = PAGE
+page {
+    10 = USER
+    10.userFunc = tx_templavoila_pi1->main_page
+
+	1963 = < plugin.tx_devnullvoila_pi1
+}
