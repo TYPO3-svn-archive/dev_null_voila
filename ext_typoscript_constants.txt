@@ -1,0 +1,7 @@
+config.devnullvoila {
+	# cat=devnull-css/base/1; type=string; label=path where your css-files are stored. Used to link CSS-files refered in local processing xml of templates
+	cssPath = fileadmin/templates/css/
+
+	# cat=devnull-css/others/2; type=string; label=name of the node for xml - change only if you now what you are doing
+	expert.devNullXmlRoot = devNullVoilaCSS
+}

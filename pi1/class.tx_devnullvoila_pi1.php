@@ -2,7 +2,7 @@
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2011 Wolfgang <scotty@dev-null.at>
+*  (c) 2011 Wolfgang Rotschek <scotty@dev-null.at>
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -73,9 +73,6 @@ class tx_devnullvoila_pi1 extends tslib_pibase {
         
 		$xmlDevNullRoot = $this->conf['xmlDevNullRoot'];
 		
-        $datastructure_uid = 0; 
-        $startpage = 1;
-		
 		// we start with the current page
 		$treeUID = $pageUID;
 		
@@ -128,10 +125,31 @@ class tx_devnullvoila_pi1 extends tslib_pibase {
 					// t3lib_utility_Debug::printArray($yamlXml, "xml array");
 					// t3lib_utility_Debug::printArray($this->conf);
 
-					foreach($this->conf['cssConfigs.'] as $cssConfig) {
+					foreach($this->conf['cssConfigs.'] as $cssKey => $cssConfig) {
 						// uncomment for debugging
 						// t3lib_utility_Debug::printArray($cssConfig);
+						
+						if(!is_array($cssConfig))
+						{
+							$cssFile = $cssConfig;
+							$cssConfig = $conf['cssConfigs.'][$cssKey . '.'];
+						}
+						elseif(empty($cssConfig['field'])) {
+							continue;
+						}
+						else {
+							$xmlField = $cssConfig['field'];
 
+							$xmlValue = $yamlXml['ROOT'][$xmlDevNullRoot][$xmlField];
+							
+							if(empty($xmlValue))
+							{
+								echo "Error: tx_devnull_empty_xml_field - [$xmlDevNullRoot] - field [$xmlField]";
+							}
+							$cssPath = empty($cssConfig['cssPath']) ? $this->conf['cssPath'] : $cssConfig['cssPath'];
+							$cssFile = $cssPath . $xmlValue;
+						}
+						
 						// get configuration pidOnly
 						$pidOnly = empty($cssConfig['pidOnly']) ? 0 : $cssConfig['pidOnly'];
 						
@@ -139,37 +157,25 @@ class tx_devnullvoila_pi1 extends tslib_pibase {
 						if($pidOnly != 0 && $pageUID != $pidOnly)
 							continue;
 						
-						$xmlField = $cssConfig['field'];
+						// Get item data
+						$cssMedia = empty($cssConfig['media']) ? $this->conf['media'] : $cssConfig['media'];
+						$cssTitle = empty($cssConfig['title']) ? $this->conf['title'] : $cssConfig['title'];
 
-						 if($xmlField == 'file') {
-							// therefore cssPath has to be a full path to a css-file
-							$xmlValue = '';
-							
-							if(empty($cssConfig['cssPath'])) {
-								echo "Error: tx_devnull_empty_csspath - config file";
-								return;
-							}							
-						} else {
-							$xmlValue = $yamlXml['ROOT'][$xmlDevNullRoot][$xmlField];
-						
-							if(empty($xmlValue))
-							{
-								echo "Error: tx_devnull_empty_xml_field - [$xmlDevNullRoot] - field [$xmlField]";
-							}
-						}
+						// Wrap attributes
+						$cssTmp = $this->cObj->stdWrap($cssFile,  $this->conf['linkWraps.']['href_sdtWrap.'])
+						        . $this->cObj->stdWrap($cssMedia, $this->conf['linkWraps.']['media_stdWrap.'])
+								. $this->cObj->stdWrap($cssTitle, $this->conf['linkWraps.']['title_stdWrap.']);
 						
 						// Get wrap strings
-						$cssPath     = empty($cssConfig['cssPath'])     ? $this->conf['cssPath']     : $cssConfig['cssPath'];
-						$cssWrapLink = empty($cssConfig['cssWrapLink']) ? $this->conf['cssWrapLink'] : $cssConfig['cssWrapLink'];
-						$cssWrapItem = empty($cssConfig['cssWrapItem']) ? $this->conf['cssWrapItem'] : $cssConfig['cssWrapItem'];
+						$cssWrapItem = empty($cssConfig['wrap']) ? '|' : $cssConfig['wrap'];
 						
 						// wrap everything
-						$cssPath = $cssPath . $xmlValue;
-						$cssLink = $this->cObj->wrap($cssPath, $cssWrapLink);
+						$cssLink = $this->cObj->stdWrap($cssTmp, $this->conf['linkWraps.']['css_stdWrap.']);
 						$cssItem = $this->cObj->wrap($cssLink, $cssWrapItem);
 						
 						// append CSS Link tag to header
-						$GLOBALS['TSFE']->additionalHeaderData["dev_null.voila.css-$xmlField"] = $cssItem;
+						$GLOBALS['TSFE']->additionalHeaderData["dev_null.voila.css-$cssKey"] = $cssItem;
+						
 					}
 					
 					return;

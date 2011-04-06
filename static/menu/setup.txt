@@ -12,14 +12,14 @@ lib.navbar {
   20 {
     stdWrap.prefixComment = 2|Output of lib.navbar.20
     wrap = <div id="nav_main">|</div>
-    entryLevel = {$plugin.devnullvoila.navMain.entryLevel}
-    excludeUidList = {$plugin.devnullvoila.navMain.excludeList}
+    entryLevel = {$config.devnullvoila.navMain.entryLevel}
+    excludeUidList = {$config.devnullvoila.navMain.excludeList}
     1 = TMENU
     1 {
         noBlur = 1
         wrap = <ul>|</ul>
         NO = 1
-        NO.ATagTitle.field = abstract // description // subtitle
+        NO.ATagTitle.field = nav_title // abstract // description // subtitle
         NO.allWrap = <li>|</li>
 		NO.allwrap.prefixComment = 2|Output of lib.navbar.20.NO
         NO.linkWrap = <span>|</span>
@@ -34,7 +34,7 @@ lib.navbar {
 }
 
 # Delete COA-Members if user has set the appropriate option
-[globalVar = LIT:1 = {$plugin.devnullvoila.navMain.navigationOff}]
+[globalVar = LIT:1 = {$config.devnullvoila.navMain.navigationOff}]
 lib.navbar.10 >
 lib.navbar.20 >
 
@@ -50,7 +50,8 @@ lib.submenu.10 {
 # Should begin with 20, so the user can add something here.
     20 = TEXT
     20.stdWrap.prefixComment = 2|Output of lib.submenu.10.20
-    20.data = leveltitle:1
+	# use nav_title first if emtpy use page title
+    20.data = levelfield:1, nav_title // levelfield:1, title
     20.ifEmpty.cObject = TEXT
     20.ifEmpty.cObject.value = YAML CSS-Framework
     20.wrap = <li id="title">|</li>
@@ -58,19 +59,19 @@ lib.submenu.10 {
     30 {
         stdWrap.prefixComment = 2|Output of lib.submenu.10.30
         wrap = |
-        entryLevel = {$plugin.devnullvoila.navSub.entryLevel}
-        excludeUidList = {$plugin.devnullvoila.navSub.excludeList}
+        entryLevel = {$config.devnullvoila.navSub.entryLevel}
+        excludeUidList = {$config.devnullvoila.navSub.excludeList}
         1 = TMENU
         1 {
-            expAll = {$plugin.devnullvoila.navSub.expandToggle}
+            expAll = {$config.devnullvoila.navSub.expandToggle}
             noBlur = 1
             wrap = |
             NO = 1
-            NO.ATagTitle.field = abstract // description // subtitle
+            NO.ATagTitle.field = nav_tile // abstract // description // subtitle
             # NO.allWrap = |
             NO.wrapItemAndSub = <li>|</li>
             NO.stdWrap.htmlSpecialChars = 1
-			NO.linkWrap = {$plugin.devnullvoila.navSub.menuLinkWrap}
+			NO.linkWrap = {$config.devnullvoila.navSub.menuLinkWrap}
 			NO.ATagBeforeWrap = 1
 			CUR < .NO
 			CUR = 1
@@ -80,7 +81,7 @@ lib.submenu.10 {
 			CUR.stdWrap.htmlSpecialChars = 1
 			IFSUB = 1
 			IFSUB < .NO
-			IFSUB.linkWrap = {$plugin.devnullvoila.navSub.menuIfsubLinkWrap}
+			IFSUB.linkWrap = {$config.devnullvoila.navSub.menuIfsubLinkWrap}
 		}
 		2 < .1
 		2.wrap = <ul>|</ul>
@@ -93,11 +94,11 @@ lib.submenu.10 {
 	}
 }
 # Delete entire menu if user has set the appropriate option
-[globalVar = LIT:1 = {$plugin.devnullvoila.navSub.menuOff}]
+[globalVar = LIT:1 = {$config.devnullvoila.navSub.menuOff}]
 lib.submenu.10 >
 [global]
 # Delete headline of menu if user has set the appropriate option
-[globalVar = LIT:1 = {$plugin.devnullvoila.navSub.headlineOff}]
+[globalVar = LIT:1 = {$config.devnullvoila.navSub.headlineOff}]
 lib.submenu.10.20 >
 [global]
 
@@ -111,7 +112,7 @@ lib.topnav {
         stdWrap.prefixComment = 2|Output of lib.topnav.10
         wrap = <div id="top_door">|</div>
         special = list
-        special.value = {$plugin.devnullvoila.navTop.IncludeList}
+        special.value = {$config.devnullvoila.navTop.IncludeList}
         1 = TMENU
         1 {
 			noBlur = 1
@@ -131,6 +132,6 @@ lib.topnav {
 		}
     }
 }
-[globalVar = LIT:1 = {$plugin.devnullvoila.navTop.topNavOff}]
+[globalVar = LIT:1 = {$config.devnullvoila.navTop.topNavOff}]
 lib.topnav >
 [GLOBAL]

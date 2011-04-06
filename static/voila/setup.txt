@@ -1,26 +1,28 @@
 
 config {
-    baseURL                     = {$plugin.devnullvoila.userBaseUrl}
+    baseURL                     = {$config.devnullvoila.userBaseUrl}
 
-    doctype                     = {$plugin.devnullvoila.expert.docTypeToUse}
+    doctype                     = {$config.devnullvoila.expert.docTypeToUse}
     xml_prologue                = none
     htmlSpecialChars            = 1
 
     linkVars                    = L
     sys_language_uid            = 0
-    language                    = {$plugin.devnullvoila.lang.langIsoCode}
-    locale_all                  = {$plugin.devnullvoila.lang.langLocale}
-    htmlTag_langKey             = {$plugin.devnullvoila.lang.langIsoCode}
+    language                    = {$config.devnullvoila.lang.langIsoCode}
+    locale_all                  = {$config.devnullvoila.lang.langLocale}
+    htmlTag_langKey             = {$config.devnullvoila.lang.langIsoCode}
 
-    tx_cooluri_enable    	    = {$plugin.devnullvoila.coolUriOn}
+    tx_cooluri_enable    	    = {$config.devnullvoila.coolUriOn}
+
+	meaningfulTempFilePrefix    = 30
 
     simulateStaticDocuments     = 0
     redirectOldLinksToNew       = 1
 
-    stat                        = {$plugin.devnullvoila.statisticOn}
-    stat_apache                 = {$plugin.devnullvoila.statApacheSetting}
-    stat_apache_logfile         = {$plugin.devnullvoila.statApacheLogFile}
-    stat_mysql                  = {$plugin.devnullvoila.statMysqlSetting}
+    stat                        = {$config.devnullvoila.statisticOn}
+    stat_apache                 = {$config.devnullvoila.statApacheSetting}
+    stat_apache_logfile         = {$config.devnullvoila.statApacheLogFile}
+    stat_mysql                  = {$config.devnullvoila.statMysqlSetting}
 
     stat_apache_niceTitle       = utf-8
     stat_apache_pagenames       = [request_uri]
@@ -31,15 +33,15 @@ config {
 #	stat_apache_noHost          =
 #	stat_titleLen               =
 
-    admPanel                    = {$plugin.devnullvoila.expert.admPanelOn}
-    disablePrefixComment        = {$plugin.devnullvoila.expert.disablePrefComm}
+    admPanel                    = {$config.devnullvoila.expert.admPanelOn}
+    disablePrefixComment        = {$config.devnullvoila.expert.disablePrefComm}
 }
 
-[globalVar = LIT:1 = {$plugin.devnullvoila.expert.loclMode}]
+[globalVar = LIT:1 = {$config.devnullvoila.expert.loclMode}]
 config {
-	baseURL                     = {$plugin.devnullvoila.expert.loclBaseUrl}
+	baseURL                     = {$config.devnullvoila.expert.loclBaseUrl}
 
-	tx_cooluri_enable    	    = {$plugin.devnullvoila.expert.loclCoolUri}
+	tx_cooluri_enable    	    = {$config.devnullvoila.expert.loclCoolUri}
 
 	index_enable                = 1
 	stat_apache                 = 0
@@ -59,20 +61,10 @@ lib.teaser {
 }
 */
 
-plugin.tx_devnullvoila_pi1 = USER
-plugin.tx_devnullvoila_pi1 {
-	userFunc            = tx_devnullvoila_pi1->main
-	cssWrapItem         = |
-	cssWrapLink         = <link rel="stylesheet" type="text/css" href="|" >
-	cssPath             = {$plugin.devnullvoila.cssPath}
-	xmlDevNullRoot      = devNullVoilaCSS
-}
 
 # Default PAGE object:
 page = PAGE
 page {
     10 = USER
     10.userFunc = tx_templavoila_pi1->main_page
-
-	1963 = < plugin.tx_devnullvoila_pi1
 }

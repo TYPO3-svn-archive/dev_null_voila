@@ -1,0 +1,4 @@
+config.devnullvoila {
+	cssPath             = {$config.devnullvoila.cssPath}
+	devNullXmlRoot      = {$config.devnullvoila.expert.devNullXmlRoot}
+}

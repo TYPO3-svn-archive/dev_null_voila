@@ -1,4 +1,4 @@
-plugin.devnullvoila {
+config.devnullvoila {
 	# cat=devnull-basics/base/1; type=string; label=Base URL:YOU MUST CHANGE this default-setting to YOUR domain. Use the same format as the default-setting (including the trailing slash '/'). IMPORTANT: The online-documentation of realurl instructs you to set this to '1' - THIS IS WRONG, set it to a domain, otherwise it will not work.
 	userBaseUrl = http://www.changeme.tld/
 	# cat=devnull-basics/base/2; type=string; label=path where your css-files are stored. Used to link CSS-files refered in local processing xml of templates
@@ -10,7 +10,7 @@ plugin.devnullvoila {
 	userPrefixLocalAnchors = all
 }
 
-plugin.devnullvoila {
+config.devnullvoila {
 	# cat=devnull-statistics/enable/1; type=options[Off=0,On=1]; label=Use Awstats?:Set to On, if you have installed cc_awstats and want to use it. You MUST either manually (not recommended) add $TYPO3_CONF_VARS['FE']['logfile_dir'] = 'fileadmin/' to localconf.php OR (recommended) use the install-tool and set logfile_dir to fileadmin/ - This works ONLY if you install cc_awstats, which is NOT part of the YAML-Project. 
 	statisticOn = 1
 	# cat=devnull-statistics/enable/2; type=options[Off=0,On=1]; label=config.stat_apache:MUST be set if you want to use cc_awstats.
@@ -23,14 +23,14 @@ plugin.devnullvoila {
 	statMysqlSetting = 0
 }
 
-plugin.devnullvoila.lang {
+config.devnullvoila.lang {
 	# cat=devnull-language/lang/i; type=string; label=ISO-Code :of the standard language. ISO code like en, dk, de, no, it, and so on.
 	langIsoCode = de
 	# cat=devnull-language/lang/2; type=string; label=Locale-Setting:of the standard language. This is a bit tricky, because it depends on your webserver. Try different settings if dates and times are not shown correctly. On Windows-servers use the literals e.g. "german", on Linux-servers try to use the codes (e.g. de_DE*) according to the language you use. To find out which locales are installed on your Linux-Server, type 'locale -a' in a shell. Possible values are e.g. german, english (for Windows) or de_DE, de_DE@euro, de_DE.iso88591, de_DE.iso885915@euro, de_DE.utf8, en_US, en_US.iso88591, en_US.iso885915, en_US.utf8 (for Linux).
 	langLocale = de_DE.utf8
 }
 
-plugin.devnullvoila.expert {
+config.devnullvoila.expert {
 	# cat=devnull-expert-settings/others/1; type=string; label=Local URL:YOU MUST CHANGE this default-setting to YOUR local domain. Use the same format as the default-setting (including the trailing slash '/'). If the installation is set to local mode config.BaseURL will be set to this URL
 	loclBaseUrl = http://www.changeme.tld/
 	# cat=devnull-expert-settings/others/2; type=options[No=0,Yes=1]; label=Use cooluri in local mode?:Enable this feature only, if you have installed the TYPO3 extension cooluri. IMPORTANT: You have to configure cooluri by means of its documentation. Read it! If you enable this feature, simulateStaticDocuments is switched off automatically, no matter what you set there. The option tx_cooluri_enable = 1, which is required by cooluri, is set automatically, if this feature is enabled. Do not forget to set Local URL also.

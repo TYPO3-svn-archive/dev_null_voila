@@ -1,4 +1,4 @@
-plugin.devnullvoila.navMain {
+config.devnullvoila.navMain {
 	# cat=devnull-header-nav-main/enable/1; type=options[No=0,Yes=1]; label=Switch off Header-Navigation?:Make sure you have set the UIDs of the pages to appear in Header-Navigation in the next option.
 	navigationOff = 0
 	# cat=devnull-header-nav-main/enable/2; type=int+; label=Entry level of tab-navigation:By default it shows all pages of the FIRST level (0) in your pagetree.
@@ -7,7 +7,7 @@ plugin.devnullvoila.navMain {
 	excludeList =
 }
 
-plugin.devnullvoila.navSub {
+config.devnullvoila.navSub {
 	# cat=devnull-header-nav-sub/enable/1; type=options[No=0,Yes=1]; label=Switch off entire submenu?:NOTICE: If you turn off the submenu, all other options concerning it are ignored, of course.
 	menuOff = 0
 	# cat=devnull-header-nav-sub/enable/2; type=options[No=0,Yes=1]; label=Switch off headline above submenu?:Maybe your design requires this.
@@ -24,7 +24,7 @@ plugin.devnullvoila.navSub {
 	menuIfsubLinkWrap = |
 }
 
-plugin.devnullvoila.navTop {
+config.devnullvoila.navTop {
 	# cat=devnull-header-nav-top/enable/1; type=options[No=0,Yes=1]; label=Switch off Header-Navigation?:Make sure you have set the UIDs of the pages to appear in Header-Navigation in the next option.
 	topNavOff = 0
 	# cat=devnull-header-nav-top/enable/2; type=string; label=Menu in Header (Lang all):Which pages must appear in the Header-Navigation? Use a comma-separated list of UIDs (e.g. 1,2,3)

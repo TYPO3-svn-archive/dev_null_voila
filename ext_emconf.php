@@ -3,7 +3,7 @@
 ########################################################################
 # Extension Manager/Repository config file for ext "dev_null_voila".
 #
-# Auto generated 28-03-2011 21:09
+# Auto generated 04-04-2011 18:37
 #
 # Manual updates:
 # Only the data in the array - everything else is removed by next
@@ -31,7 +31,7 @@ Work is derived from extension db_ttv',
 	'clearCacheOnLoad' => 0,
 	'lockType' => '',
 	'author_company' => '',
-	'version' => '0.2.0',
+	'version' => '0.5.2',
 	'constraints' => array(
 		'depends' => array(
 			'typo3' => '4.5.0-4.9.9',
@@ -49,7 +49,7 @@ Work is derived from extension db_ttv',
 			'tt_news' => '',
 		),
 	),
-	'_md5_values_when_last_written' => 'a:11:{s:9:"ChangeLog";s:4:"0885";s:10:"README.txt";s:4:"ee2d";s:12:"ext_icon.gif";s:4:"d725";s:17:"ext_localconf.php";s:4:"f3c5";s:14:"ext_tables.php";s:4:"9d86";s:14:"doc/manual.sxw";s:4:"712b";s:33:"pi1/class.tx_devnullvoila_pi1.php";s:4:"a657";s:25:"static/menu/constants.txt";s:4:"dec1";s:21:"static/menu/setup.txt";s:4:"8462";s:26:"static/voila/constants.txt";s:4:"091c";s:22:"static/voila/setup.txt";s:4:"f673";}',
+	'_md5_values_when_last_written' => 'a:15:{s:9:"ChangeLog";s:4:"566e";s:10:"README.txt";s:4:"ee2d";s:32:"class.tx_devnullvoila_fehook.php";s:4:"8880";s:12:"ext_icon.gif";s:4:"d725";s:17:"ext_localconf.php";s:4:"b6ef";s:14:"ext_tables.php";s:4:"9d86";s:28:"ext_typoscript_constants.txt";s:4:"22d3";s:24:"ext_typoscript_setup.txt";s:4:"a153";s:14:"doc/manual.sxw";s:4:"cfcf";s:33:"pi1/class.tx_devnullvoila_pi1.php";s:4:"7f8c";s:45:"renderer/class.tx_devnullvoila_cssconfigs.php";s:4:"8729";s:25:"static/menu/constants.txt";s:4:"ef46";s:21:"static/menu/setup.txt";s:4:"93b0";s:26:"static/voila/constants.txt";s:4:"f003";s:22:"static/voila/setup.txt";s:4:"5f2e";}',
 	'suggests' => array(
 	),
 );
