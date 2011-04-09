@@ -1,32 +1,32 @@
 config.devnullvoila.navMain {
-	# cat=devnull-header-nav-main/enable/1; type=options[No=0,Yes=1]; label=Switch off Header-Navigation?:Make sure you have set the UIDs of the pages to appear in Header-Navigation in the next option.
+	# cat=dev-null-voila.nav-main/enable/1; type=options[No=0,Yes=1]; label=Switch off Header-Navigation?:Make sure you have set the UIDs of the pages to appear in Header-Navigation in the next option.
 	navigationOff = 0
-	# cat=devnull-header-nav-main/enable/2; type=int+; label=Entry level of tab-navigation:By default it shows all pages of the FIRST level (0) in your pagetree.
+	# cat=dev-null-voila.nav-main/enable/2; type=int+; label=Entry level of tab-navigation:By default it shows all pages of the FIRST level (0) in your pagetree.
 	entryLevel = 0
-	# cat=devnull-header-nav-main/enable/3; type=string; label=Exclude from tab-navigation:Enter a comma-separated list of page-IDs here, to be excluded from tab-navigation.
+	# cat=dev-null-voila.nav-main/enable/3; type=string; label=Exclude from tab-navigation:Enter a comma-separated list of page-IDs here, to be excluded from tab-navigation.
 	excludeList =
 }
 
 config.devnullvoila.navSub {
-	# cat=devnull-header-nav-sub/enable/1; type=options[No=0,Yes=1]; label=Switch off entire submenu?:NOTICE: If you turn off the submenu, all other options concerning it are ignored, of course.
+	# cat=dev-null-voila.nav-sub/enable/1; type=options[No=0,Yes=1]; label=Switch off entire submenu?:NOTICE: If you turn off the submenu, all other options concerning it are ignored, of course.
 	menuOff = 0
-	# cat=devnull-header-nav-sub/enable/2; type=options[No=0,Yes=1]; label=Switch off headline above submenu?:Maybe your design requires this.
+	# cat=dev-null-voila.nav-sub/enable/2; type=options[No=0,Yes=1]; label=Switch off headline above submenu?:Maybe your design requires this.
 	headlineOff = 0
-	# cat=devnull-header-nav-sub/enable/3; type=int+; label=Entry level of submenu:The submenu is the menu on the left side and by default it shows all pages and subpages of the SECOND level in your pagetree. 
+	# cat=dev-null-voila.nav-sub/enable/3; type=int+; label=Entry level of submenu:The submenu is the menu on the left side and by default it shows all pages and subpages of the SECOND level in your pagetree. 
 	entryLevel = 1
-	# cat=devnull-header-nav-sub/enable/4; type=options[No=0,Yes=1]; label=Expand levels of submenu?:By default ALL levels of submenu are expanded (open). If there are many pages and subpages in your pagetree, it is possibly better to set this feature to "no" to make it more concise for the website-user. Then, the resepective levels are expanded (opened) only, if the user clicks on a parent-page.
+	# cat=dev-null-voila.nav-sub/enable/4; type=options[No=0,Yes=1]; label=Expand levels of submenu?:By default ALL levels of submenu are expanded (open). If there are many pages and subpages in your pagetree, it is possibly better to set this feature to "no" to make it more concise for the website-user. Then, the resepective levels are expanded (opened) only, if the user clicks on a parent-page.
 	expandToggle = 1
-	# cat=devnull-header-nav-sub/enable/5; type=string; label=Exclude from sub navigation:Enter a comma-separated list of page-IDs here, to be excluded from sub navigation.
+	# cat=dev-null-voila.nav-sub/enable/5; type=string; label=Exclude from sub navigation:Enter a comma-separated list of page-IDs here, to be excluded from sub navigation.
 	excludeList =
-	# cat=devnull-header-nav-sub/other/6; type=wrap; label=Mainmenu (Lang all, optional):Wrap around each single link (if needed):
+	# cat=dev-null-voila.nav-sub/other/6; type=wrap; label=Mainmenu (Lang all, optional):Wrap around each single link (if needed):
 	menuLinkWrap = |
-	# cat=devnull-header-nav-sub/other/7; type=wrap; label=Mainmenu (Lang all, optional):The wrap around a single Link in the mainmenu, if subpages are present (if needed):
+	# cat=dev-null-voila.nav-sub/other/7; type=wrap; label=Mainmenu (Lang all, optional):The wrap around a single Link in the mainmenu, if subpages are present (if needed):
 	menuIfsubLinkWrap = |
 }
 
 config.devnullvoila.navTop {
-	# cat=devnull-header-nav-top/enable/1; type=options[No=0,Yes=1]; label=Switch off Header-Navigation?:Make sure you have set the UIDs of the pages to appear in Header-Navigation in the next option.
+	# cat=dev-null-voila.nav-top/enable/1; type=options[No=0,Yes=1]; label=Switch off Header-Navigation?:Make sure you have set the UIDs of the pages to appear in Header-Navigation in the next option.
 	topNavOff = 0
-	# cat=devnull-header-nav-top/enable/2; type=string; label=Menu in Header (Lang all):Which pages must appear in the Header-Navigation? Use a comma-separated list of UIDs (e.g. 1,2,3)
+	# cat=dev-null-voila.nav-top/enable/2; type=string; label=Menu in Header (Lang all):Which pages must appear in the Header-Navigation? Use a comma-separated list of UIDs (e.g. 1,2,3)
 	IncludeList = 6,5,4
 }

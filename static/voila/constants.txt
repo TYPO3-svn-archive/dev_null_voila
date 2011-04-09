@@ -1,48 +1,48 @@
 config.devnullvoila {
-	# cat=devnull-basics/base/1; type=string; label=Base URL:YOU MUST CHANGE this default-setting to YOUR domain. Use the same format as the default-setting (including the trailing slash '/'). IMPORTANT: The online-documentation of realurl instructs you to set this to '1' - THIS IS WRONG, set it to a domain, otherwise it will not work.
+	# cat=dev-null-voila.basics/base/1; type=string; label=Base URL:YOU MUST CHANGE this default-setting to YOUR domain. Use the same format as the default-setting (including the trailing slash '/'). IMPORTANT: The online-documentation of realurl instructs you to set this to '1' - THIS IS WRONG, set it to a domain, otherwise it will not work.
 	userBaseUrl = http://www.changeme.tld/
-	# cat=devnull-basics/base/2; type=string; label=path where your css-files are stored. Used to link CSS-files refered in local processing xml of templates
+	# cat=dev-null-voila.basics/base/2; type=string; label=path where your css-files are stored. Used to link CSS-files refered in local processing xml of templates
 	cssPath = fileadmin/templates/css/
 
-	# cat=devnull-basics/others/1; type=options[No=0,Yes=1]; label=Use cooluri?:Enable this feature only, if you have installed the TYPO3 extension cooluri. IMPORTANT: You have to configure cooluri by means of its documentation. Read it! If you enable this feature, simulateStaticDocuments is switched off automatically, no matter what you set there. The option tx_cooluri_enable = 1, which is required by cooluri, is set automatically, if this feature is enabled. Do not forget to set Base URL also.
+	# cat=dev-null-voila.basics/others/1; type=options[No=0,Yes=1]; label=Use cooluri?:Enable this feature only, if you have installed the TYPO3 extension cooluri. IMPORTANT: You have to configure cooluri by means of its documentation. Read it! If you enable this feature, simulateStaticDocuments is switched off automatically, no matter what you set there. The option tx_cooluri_enable = 1, which is required by cooluri, is set automatically, if this feature is enabled. Do not forget to set Base URL also.
 	coolUriOn = 1
-	# cat=devnull-basics/others/2; type=options[all,cached,output]; label=Prefix local anchors:If realurl or cooluri is used and this feature is set to one of the keywords, the content will have all local anchors in links prefixed with the path of the script. Basically this means that <a href="#"> will be transformed to <a href="path/path/script?params#">. This procedure is necessary if Base URL is set. (all = the content is always processed before it may be stored in cache. cached = only if the page is put into the cache. output = only the output code just before it's echoed out.)
+	# cat=dev-null-voila.basics/others/2; type=options[all,cached,output]; label=Prefix local anchors:If realurl or cooluri is used and this feature is set to one of the keywords, the content will have all local anchors in links prefixed with the path of the script. Basically this means that <a href="#"> will be transformed to <a href="path/path/script?params#">. This procedure is necessary if Base URL is set. (all = the content is always processed before it may be stored in cache. cached = only if the page is put into the cache. output = only the output code just before it's echoed out.)
 	userPrefixLocalAnchors = all
 }
 
 config.devnullvoila {
-	# cat=devnull-statistics/enable/1; type=options[Off=0,On=1]; label=Use Awstats?:Set to On, if you have installed cc_awstats and want to use it. You MUST either manually (not recommended) add $TYPO3_CONF_VARS['FE']['logfile_dir'] = 'fileadmin/' to localconf.php OR (recommended) use the install-tool and set logfile_dir to fileadmin/ - This works ONLY if you install cc_awstats, which is NOT part of the YAML-Project. 
+	# cat=dev-null-voila.statistics/enable/1; type=options[Off=0,On=1]; label=Use Awstats?:Set to On, if you have installed cc_awstats and want to use it. You MUST either manually (not recommended) add $TYPO3_CONF_VARS['FE']['logfile_dir'] = 'fileadmin/' to localconf.php OR (recommended) use the install-tool and set logfile_dir to fileadmin/ - This works ONLY if you install cc_awstats, which is NOT part of the YAML-Project. 
 	statisticOn = 1
-	# cat=devnull-statistics/enable/2; type=options[Off=0,On=1]; label=config.stat_apache:MUST be set if you want to use cc_awstats.
+	# cat=dev-null-voila.statistics/enable/2; type=options[Off=0,On=1]; label=config.stat_apache:MUST be set if you want to use cc_awstats.
 	statApacheSetting = 1
 
-	# cat=devnull-statistics/file/1; type=string; label=Logfile:The file must reside in folder fileadmin/ and must be writeable for the webserver.
+	# cat=dev-null-voila.statistics/file/1; type=string; label=Logfile:The file must reside in folder fileadmin/ and must be writeable for the webserver.
 	statApacheLogFile = logfile.log
 
-	# cat=devnull-statistics/others/1; type=options[Off=0,On=1]; label=config.stat_mysql:You can use this if you want database logging also but it's not needed.
+	# cat=dev-null-voila.statistics/others/1; type=options[Off=0,On=1]; label=config.stat_mysql:You can use this if you want database logging also but it's not needed.
 	statMysqlSetting = 0
 }
 
 config.devnullvoila.lang {
-	# cat=devnull-language/lang/i; type=string; label=ISO-Code :of the standard language. ISO code like en, dk, de, no, it, and so on.
+	# cat=dev-null-voila.language/lang/i; type=string; label=ISO-Code :of the standard language. ISO code like en, dk, de, no, it, and so on.
 	langIsoCode = de
-	# cat=devnull-language/lang/2; type=string; label=Locale-Setting:of the standard language. This is a bit tricky, because it depends on your webserver. Try different settings if dates and times are not shown correctly. On Windows-servers use the literals e.g. "german", on Linux-servers try to use the codes (e.g. de_DE*) according to the language you use. To find out which locales are installed on your Linux-Server, type 'locale -a' in a shell. Possible values are e.g. german, english (for Windows) or de_DE, de_DE@euro, de_DE.iso88591, de_DE.iso885915@euro, de_DE.utf8, en_US, en_US.iso88591, en_US.iso885915, en_US.utf8 (for Linux).
+	# cat=dev-null-voila.language/lang/2; type=string; label=Locale-Setting:of the standard language. This is a bit tricky, because it depends on your webserver. Try different settings if dates and times are not shown correctly. On Windows-servers use the literals e.g. "german", on Linux-servers try to use the codes (e.g. de_DE*) according to the language you use. To find out which locales are installed on your Linux-Server, type 'locale -a' in a shell. Possible values are e.g. german, english (for Windows) or de_DE, de_DE@euro, de_DE.iso88591, de_DE.iso885915@euro, de_DE.utf8, en_US, en_US.iso88591, en_US.iso885915, en_US.utf8 (for Linux).
 	langLocale = de_DE.utf8
 }
 
 config.devnullvoila.expert {
-	# cat=devnull-expert-settings/others/1; type=string; label=Local URL:YOU MUST CHANGE this default-setting to YOUR local domain. Use the same format as the default-setting (including the trailing slash '/'). If the installation is set to local mode config.BaseURL will be set to this URL
+	# cat=dev-null-voila.expert-settings/others/1; type=string; label=Local URL:YOU MUST CHANGE this default-setting to YOUR local domain. Use the same format as the default-setting (including the trailing slash '/'). If the installation is set to local mode config.BaseURL will be set to this URL
 	loclBaseUrl = http://www.changeme.tld/
-	# cat=devnull-expert-settings/others/2; type=options[No=0,Yes=1]; label=Use cooluri in local mode?:Enable this feature only, if you have installed the TYPO3 extension cooluri. IMPORTANT: You have to configure cooluri by means of its documentation. Read it! If you enable this feature, simulateStaticDocuments is switched off automatically, no matter what you set there. The option tx_cooluri_enable = 1, which is required by cooluri, is set automatically, if this feature is enabled. Do not forget to set Local URL also.
+	# cat=dev-null-voila.expert-settings/others/2; type=options[No=0,Yes=1]; label=Use cooluri in local mode?:Enable this feature only, if you have installed the TYPO3 extension cooluri. IMPORTANT: You have to configure cooluri by means of its documentation. Read it! If you enable this feature, simulateStaticDocuments is switched off automatically, no matter what you set there. The option tx_cooluri_enable = 1, which is required by cooluri, is set automatically, if this feature is enabled. Do not forget to set Local URL also.
 	loclCoolUri = 0
-	# cat=devnull-expert-settings/others/3; type=options[XHTML 1.0 Transitional=xhtml_trans,XHTML 1.0 Frameset=xhtml_frames,XHTML 1.0 Strict=xhtml_strict,XHTML 1.1=xhtml_11,XHTML 2=xhtml_2,NO doctype at all=none]; label=Doctype to use:Be careful and change this setting only if you know, what you are doing. Otherwise your pages might NOT be valid.
+	# cat=dev-null-voila.expert-settings/others/3; type=options[XHTML 1.0 Transitional=xhtml_trans,XHTML 1.0 Frameset=xhtml_frames,XHTML 1.0 Strict=xhtml_strict,XHTML 1.1=xhtml_11,XHTML 2=xhtml_2,NO doctype at all=none]; label=Doctype to use:Be careful and change this setting only if you know, what you are doing. Otherwise your pages might NOT be valid.
 	docTypeToUse = xhtml_trans
-	# cat=devnull-expert-settings/others/4; type=options[all,cached,output]; label=XHTML cleaning:Tries to clean up the output to make it XHTML compliant and a bit more. (all = the content is always processed before it may be stored in cache. cached = only if the page is put into the cache. output = only the output code just before it's echoed out.) 
+	# cat=dev-null-voila.expert-settings/others/4; type=options[all,cached,output]; label=XHTML cleaning:Tries to clean up the output to make it XHTML compliant and a bit more. (all = the content is always processed before it may be stored in cache. cached = only if the page is put into the cache. output = only the output code just before it's echoed out.) 
 	userXhtmlCleaning = all
-	# cat=devnull-expert-settings/others/5; type=options[ltr,rtl]; label=Text direction:Sets text direction for whole document (useful for display of Arabic, Hebrew pages). Basically the value becomes the attribute value of "dir" for the <html> tag. (ltr = Left-To-Right, rtl = Right-To-Left) 
+	# cat=dev-null-voila.expert-settings/others/5; type=options[ltr,rtl]; label=Text direction:Sets text direction for whole document (useful for display of Arabic, Hebrew pages). Basically the value becomes the attribute value of "dir" for the <html> tag. (ltr = Left-To-Right, rtl = Right-To-Left) 
 	userHtmlTagDir = ltr
-	# cat=devnull-expert-settings/others/6; type=options[No=0,Yes=1]; label=Enable Admin-Panel?:If set, the admin panel appears in the bottom of pages. NOTE: In addition the panel must be enabled for non-admin users as well, if you want this, using the TSconfig for the non-admin user! See adminguide documentation. 
+	# cat=dev-null-voila.expert-settings/others/6; type=options[No=0,Yes=1]; label=Enable Admin-Panel?:If set, the admin panel appears in the bottom of pages. NOTE: In addition the panel must be enabled for non-admin users as well, if you want this, using the TSconfig for the non-admin user! See adminguide documentation. 
 	admPanelOn = 0
-	# cat=devnull-expert-settings/others/7; type=options[No=0,Yes=1]; label=Prefix comments off?:This is for debugging your TypoScript Code. If switched On, HTML comments are added like <!-- Output of lib.header.20 [begin] --> and <!-- Output of lib.header.20 [end] --> to find the output of an element easier in HTML source. The COA-Elements must be prepared to do this. Turn off for production environments!
+	# cat=dev-null-voila.expert-settings/others/7; type=options[No=0,Yes=1]; label=Prefix comments off?:This is for debugging your TypoScript Code. If switched On, HTML comments are added like <!-- Output of lib.header.20 [begin] --> and <!-- Output of lib.header.20 [end] --> to find the output of an element easier in HTML source. The COA-Elements must be prepared to do this. Turn off for production environments!
 	disablePrefComm = 1
 }
