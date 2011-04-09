@@ -1,4 +1,11 @@
 config.devnullvoila {
 	cssPath             = {$config.devnullvoila.cssPath}
 	devNullXmlRoot      = {$config.devnullvoila.expert.devNullXmlRoot}
+
+	linkAuthor			= {$config.devnullvoila.linkAuthor}
+	linkContents		= {$config.devnullvoila.linkContents}
+	linkIndex			= {$config.devnullvoila.linkIndex}
+	linkSearch			= {$config.devnullvoila.linkSearch}
+	linkHelp			= {$config.devnullvoila.linkHelp}
+	linkCopyright		= {$config.devnullvoila.linkCopyright}
 }

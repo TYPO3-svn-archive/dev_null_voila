@@ -28,6 +28,7 @@ require_once(PATH_tslib.'class.tslib_pibase.php');
 require_once(PATH_t3lib.'class.t3lib_div.php');
 
 require_once(t3lib_extMgm::extPath('dev_null_voila', 'renderer/class.tx_devnullvoila_cssconfigs.php'));
+require_once(t3lib_extMgm::extPath('dev_null_voila', 'renderer/class.tx_devnullvoila_sitelinks.php'));
 
 class tx_devnullvoila_fehook extends tslib_pibase {    
 
@@ -44,6 +45,10 @@ class tx_devnullvoila_fehook extends tslib_pibase {
 		$this->renderer = t3lib_div::makeInstance('tx_devnullvoila_cssconfigs');
 		$this->renderer->renderConfig($TSconf);
 		
+		// instantiate our renderer and call it
+		$this->renderer = t3lib_div::makeInstance('tx_devnullvoila_sitelinks');
+		$this->renderer->renderConfig($TSconf);
+
 		// some debugging stuff
 		$GLOBALS['TSFE']->additionalHeaderData[] = '<!-- dev_null.voila.configArrayPostProc end -->';
 

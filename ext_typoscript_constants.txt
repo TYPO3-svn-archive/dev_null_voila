@@ -1,7 +1,20 @@
 config.devnullvoila {
-	# cat=devnull-css/base/1; type=string; label=path where your css-files are stored. Used to link CSS-files refered in local processing xml of templates
+	# cat=dev-null-voila.css/base/1; type=string; label=path where your css-files are stored. Used to link CSS-files refered in local processing xml of templates
 	cssPath = fileadmin/templates/css/
 
-	# cat=devnull-css/others/2; type=string; label=name of the node for xml - change only if you now what you are doing
+	# cat=dev-null-voila.css/others/2; type=string; label=name of the node for xml - change only if you now what you are doing
 	expert.devNullXmlRoot = devNullVoilaCSS
+
+	# cat=dev-null-voila.links/others/1; type=int; label=Page ID holding authors information:inserts a link rel="author" into the header
+	linkAuthor = 0
+	# cat=dev-null-voila.links/others/2; type=int; label=Page ID holding a human readable sitemap:inserts a link rel="contents" into the header
+	linkContents = 0
+	# cat=dev-null-voila.links/others/3; type=int; label=Page ID holding a human readable index:inserts a link rel="index" into the header
+	linkIndex = 0
+	# cat=dev-null-voila.links/others/4; type=int; label=Page ID to a search page:inserts a link rel="search" into the header
+	linkSearch = 0
+	# cat=dev-null-voila.links/others/5; type=int; label=Page ID to a help page:inserts a link rel="help" into the header
+	linkHelp = 0
+	# cat=dev-null-voila.links/others/6; type=int; label=Page ID holding copyright information:inserts a link rel="copyright" into the header
+	linkCopyright = 0
 }
